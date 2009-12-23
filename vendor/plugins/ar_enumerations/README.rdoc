@@ -1,0 +1,79 @@
+= ArEnumerations plugin
+
+ArEnumerations is a simple Rails plugin which brings transparent enums to ActiveRecord objects. It doesn't require native database
+support for enums or sets, instead of this it stores values as plain integers.
+
+== Example
+
+ArEnumerations usage is simple:
+
+  # Migration
+  create_table :foos do |t|
+    t.column :days, :integer
+    t.column :selected_day, :integer
+  end
+
+  # Model
+  class Foo < ActiveRecord::Base
+    MONDAY = "Monday"
+    FRIDAY = "Friday"
+    SUNDAY = "Sunday"
+
+    DAYS = [MONDAY, FRIDAY, SUNDAY]
+
+    enumeration_for :days, DAYS
+    enumeration_for :selected_day, DAYS, :single => true
+  end
+
+After this you can set foo's days with strings:
+
+  @foot.days
+  # => nil
+
+  @foo.days = Foo::DAYS
+  @foo.selected_day = Foo::MONDAY
+
+  @foo.days
+  # => ["Monday", "Friday", "Sunday"]
+
+  @foo[:days]  # In such way you can get value which will actually be stored in DB
+  # => 2
+
+And you can work with bitfield attributes as regular arrays:
+
+  @foo.selected_day
+  # => nil
+
+  @foo.selected_day = Foo::MONDAY
+  @user.selected_day
+  # => "Monday"
+
+==  Getting ArEnumeration value for specified values
+
+Sometimes (for example, in search queries) you need to ArEnumeration value.
+
+  class Foo < ActiveRecord::Base
+    validates_presence_of :name
+    MONDAY = "Monday"
+    FRIDAY = "Friday"
+    SUNDAY = "Sunday"
+    DAYS = [MONDAY, FRIDAY, SUNDAY]
+    enumeration_for :days, DAYS
+    enumeration_for :selected_day, DAYS, :single => true
+    named_scope :sundays, :conditions => { :selected_day => enumeration_attribute_db_value(:selected_day, Foo::SUNDAY) }
+  end
+
+== Handling of incorrect values
+
+ArEnumerations columns will handle all incorrect (unspecified) values as +nil+:
+
+  @foo.selected_day = 'other day'
+  @foo.selected_day
+  # => nil
+
+== Copyrights
+
+Copyright (c) 2009 Igor Kasyanchuk (igorkasyanchuk at gmail dot com), released under the MIT license.
+Feel free to mail me with any questions regarding this plugin.
+
+PS: As a tutorial for this plugin was used magic_numbers plugin: http://github.com/sotakone/magic_numbers.

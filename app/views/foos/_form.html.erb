@@ -1,0 +1,12 @@
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :selected_day %><br />
+  <%= f.select :selected_day, Foo::DAYS, :include_blank => true %>
+</p>
+<p>
+  <%= f.label :days %><br />
+  <%= f.collection_select :days, Foo::DAYS, :to_s, :to_s, {}, :multiple => true, :size => 5 %>
+</p>

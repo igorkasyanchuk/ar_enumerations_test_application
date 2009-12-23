@@ -1,0 +1,19 @@
+<p>
+  <b>Name:</b>
+  <%=h @foo.name %>
+</p>
+
+<p>
+  <b>Selected day:</b>
+  <%=h @foo.selected_day %>
+</p>
+
+<p>
+  <b>Days:</b>
+  <br />
+  <%= @foo.days.join("<br />") %>
+</p>
+
+
+<%= link_to 'Edit', edit_foo_path(@foo) %> |
+<%= link_to 'Back', foos_path %>

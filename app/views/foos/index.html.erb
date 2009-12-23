@@ -1,0 +1,44 @@
+<h1>Listing foos</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Selected day</th>
+    <th>Days</th>
+  </tr>
+
+<% @foos.each do |foo| %>
+  <tr>
+    <td><%=h foo.name %></td>
+    <td><%=h foo.selected_day %></td>
+    <td><%=h foo.days.join(',') %></td>
+    <td><%= link_to 'Show', foo %></td>
+    <td><%= link_to 'Edit', edit_foo_path(foo) %></td>
+    <td><%= link_to 'Destroy', foo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New foo', new_foo_path %>
+
+<h1>Test Named scope for Sundays</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Selected day</th>
+    <th>Days</th>
+  </tr>
+<% Foo.sundays.each do |foo| %>
+  <tr>
+    <td><%=h foo.name %></td>
+    <td><%=h foo.selected_day %></td>
+    <td><%=h foo.days.join(',') %></td>
+    <td><%= link_to 'Show', foo %></td>
+    <td><%= link_to 'Edit', edit_foo_path(foo) %></td>
+    <td><%= link_to 'Destroy', foo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

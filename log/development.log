@@ -1,0 +1,857 @@
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (9.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateFoos (20091223110329)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "foos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "selected_day" integer, "days" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091223110329')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("foos")[0m
+
+
+Processing ApplicationController#index (for 192.168.67.1 at 2009-12-23 06:04:23) [GET]
+
+NameError (uninitialized constant FooController):
+  
+
+Rendered rescues/_trace (74.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 06:04:30) [GET]
+  [4;36;1mFoo Load (0.7ms)[0m   [0;1mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 27ms (View: 23, DB: 1) | 200 OK [http://devlist.if.ua/]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 06:04:31) [GET]
+  [4;35;1mFoo Load (0.3ms)[0m   [0mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://devlist.if.ua/]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:04:32) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:05:54) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.7ms)
+Completed in 20ms (View: 15, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:06:21) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.7ms)
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:06:42) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (wrong number of arguments (3 for 4)) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, Foo::DAYS, :multiple => true %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11:in `collection_select'
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (61.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 06:07:20) [GET]
+  [4;36;1mFoo Load (0.4ms)[0m   [0;1mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://devlist.if.ua/]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:07:22) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.7ms)
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:07:33) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.6ms)
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:09:10) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.6ms)
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:09:11) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (0.9ms)
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:09:19) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (undefined method `collection' for #<ActionView::Helpers::FormBuilder:0x9069dd0>) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection :days, Foo::DAYS, {:multiple => true, :size =>5} %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:09:30) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (undefined method `collection' for #<ActionView::Helpers::FormBuilder:0x9270598>) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection :days, Foo::DAYS, {:multiple => true, :size =>5} %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (60.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:10:02) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (wrong number of arguments (3 for 4)) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, [Foo::DAYS, Foo::DAYS], {:multiple => true, :size =>5} %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11:in `collection_select'
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (112.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:10:03) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (wrong number of arguments (3 for 4)) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, [Foo::DAYS, Foo::DAYS], {:multiple => true, :size =>5} %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11:in `collection_select'
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (109.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:10:12) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (wrong number of arguments (3 for 4)) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, [Foo::DAYS, Foo::DAYS], :multiple => true, :size =>5 %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11:in `collection_select'
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (61.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:11:10) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError ({:multiple=>true, :size=>5} is not a symbol) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, Foo::DAYS, :self, :multiple => true, :size =>5 %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (65.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:11:15) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (undefined method `self' for "Monday":String) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, Foo::DAYS, :self, :self, :multiple => true, :size =>5 %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (112.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:11:20) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError (undefined method `self' for "Monday":String) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, Foo::DAYS, :self, :to_s, :multiple => true, :size =>5 %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (112.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:11:23) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.6ms)
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:11:29) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+
+ActionView::TemplateError ({:multiple=>true, :size=>5} is not a symbol) on line #11 of app/views/foos/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :days %><br />
+11:   <%= f.collection_select :days, Foo::DAYS, :to_s, :multiple => true, :size =>5 %>
+12: </p>
+
+    app/views/foos/_form.html.erb:11
+    app/views/foos/new.html.erb:6
+    app/views/foos/new.html.erb:3
+    app/controllers/foos_controller.rb:29:in `new'
+
+Rendered rescues/_trace (111.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:11:40) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.6ms)
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:11:48) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.7ms)
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:12:49) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.6ms)
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:12:50) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.0ms)
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:13:10) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.6ms)
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:13:11) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.0ms)
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:13:23) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (2.0ms)
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:13:32) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.7ms)
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:13:33) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.0ms)
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:13:53) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.2ms)
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#new (for 192.168.67.1 at 2009-12-23 06:14:08) [GET]
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.8ms)
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://devlist.if.ua/foos/new]
+
+
+Processing FoosController#create (for 192.168.67.1 at 2009-12-23 06:14:13) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "foo"=>{"name"=>"igor", "days"=>["Friday", "Sunday"], "selected_day"=>""}}
+Rendering template within layouts/foos
+Rendering foos/new
+Rendered foos/_form (1.1ms)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#create (for 192.168.67.1 at 2009-12-23 06:14:22) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "foo"=>{"name"=>"igor", "days"=>["Friday", "Sunday"], "selected_day"=>""}}
+  [4;35;1mFoo Create (0.4ms)[0m   [0mINSERT INTO "foos" ("name", "created_at", "days", "updated_at", "selected_day") VALUES('igor', '2009-12-23 11:14:22', 6, '2009-12-23 11:14:22', 0)[0m
+Redirected to http://devlist.if.ua:3000/foos/1
+Completed in 17ms (DB: 0) | 302 Found [http://devlist.if.ua/foos]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:14:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#edit (for 192.168.67.1 at 2009-12-23 06:14:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/edit
+Rendered foos/_form (1.7ms)
+Completed in 15ms (View: 10, DB: 0) | 200 OK [http://devlist.if.ua/foos/1/edit]
+
+
+Processing FoosController#update (for 192.168.67.1 at 2009-12-23 06:14:29) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "id"=>"1", "foo"=>{"name"=>"igor", "days"=>["Friday", "Sunday"], "selected_day"=>"Monday"}}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+  [4;35;1mFoo Update (0.2ms)[0m   [0mUPDATE "foos" SET "updated_at" = '2009-12-23 11:14:29', "selected_day" = 1 WHERE "id" = 1[0m
+Redirected to http://devlist.if.ua:3000/foos/1
+Completed in 56ms (DB: 0) | 302 Found [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:14:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:14:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:14:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#edit (for 192.168.67.1 at 2009-12-23 06:14:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/edit
+Rendered foos/_form (1.2ms)
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos/1/edit]
+
+
+Processing FoosController#update (for 192.168.67.1 at 2009-12-23 06:15:02) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "id"=>"1", "foo"=>{"name"=>"igor", "days"=>["Monday", "Friday", "Sunday"], "selected_day"=>"Monday"}}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+  [4;35;1mFoo Update (0.2ms)[0m   [0mUPDATE "foos" SET "updated_at" = '2009-12-23 11:15:02', "days" = 7 WHERE "id" = 1[0m
+Redirected to http://devlist.if.ua:3000/foos/1
+Completed in 13ms (DB: 0) | 302 Found [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#edit (for 192.168.67.1 at 2009-12-23 06:15:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/edit
+Rendered foos/_form (1.1ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://devlist.if.ua/foos/1/edit]
+
+
+Processing FoosController#update (for 192.168.67.1 at 2009-12-23 06:15:05) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "id"=>"1", "foo"=>{"name"=>"igor", "days"=>["Monday", "Friday", "Sunday"], "selected_day"=>"Sunday"}}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+  [4;35;1mFoo Update (0.2ms)[0m   [0mUPDATE "foos" SET "updated_at" = '2009-12-23 11:15:05', "selected_day" = 4 WHERE "id" = 1[0m
+Redirected to http://devlist.if.ua:3000/foos/1
+Completed in 12ms (DB: 0) | 302 Found [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.3ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 49ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:15:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 06:16:00) [GET]
+  [4;36;1mFoo Load (0.5ms)[0m   [0;1mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 06:16:10) [GET]
+  [4;35;1mFoo Load (0.4ms)[0m   [0mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#edit (for 192.168.67.1 at 2009-12-23 06:16:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/edit
+Rendered foos/_form (1.4ms)
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos/1/edit]
+
+
+Processing FoosController#update (for 192.168.67.1 at 2009-12-23 06:16:15) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "id"=>"1", "foo"=>{"name"=>"igor", "days"=>["Friday"], "selected_day"=>"Monday"}}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+  [4;36;1mFoo Update (0.2ms)[0m   [0;1mUPDATE "foos" SET "updated_at" = '2009-12-23 11:16:15', "days" = 2, "selected_day" = 1 WHERE "id" = 1[0m
+Redirected to http://devlist.if.ua:3000/foos/1
+Completed in 13ms (DB: 0) | 302 Found [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 06:16:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 06:16:17) [GET]
+  [4;36;1mFoo Load (0.5ms)[0m   [0;1mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos]
+  [4;36;1mFoo Load (0.3ms)[0m   [0;1mSELECT * FROM "foos" LIMIT 1[0m
+  [4;35;1mFoo Load (0.3ms)[0m   [0mSELECT * FROM "foos" LIMIT 1[0m
+  [4;36;1mFoo Update (0.4ms)[0m   [0;1mUPDATE "foos" SET "updated_at" = '2009-12-23 11:22:17', "selected_day" = 0 WHERE "id" = 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mFoo Load (0.4ms)[0m   [0mSELECT * FROM "foos" LIMIT 1[0m
+  [4;36;1mFoo Update (0.6ms)[0m   [0;1mUPDATE "foos" SET "updated_at" = '2009-12-23 12:04:56', "selected_day" = 1 WHERE "id" = 1[0m
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 07:09:43) [GET]
+  [4;36;1mFoo Load (0.9ms)[0m   [0;1mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 42ms (View: 37, DB: 1) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#edit (for 192.168.67.1 at 2009-12-23 07:09:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/edit
+Rendered foos/_form (11.5ms)
+Completed in 90ms (View: 85, DB: 0) | 200 OK [http://devlist.if.ua/foos/1/edit]
+
+
+Processing FoosController#update (for 192.168.67.1 at 2009-12-23 07:09:50) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "id"=>"1", "foo"=>{"name"=>"igor", "days"=>["Friday", "Sunday"], "selected_day"=>"Sunday"}}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+  [4;35;1mFoo Update (0.4ms)[0m   [0mUPDATE "foos" SET "updated_at" = '2009-12-23 12:09:50', "days" = 6, "selected_day" = 4 WHERE "id" = 1[0m
+Redirected to http://devlist.if.ua:3000/foos/1
+Completed in 16ms (DB: 1) | 302 Found [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 07:09:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.3ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 07:09:51) [GET]
+  [4;35;1mFoo Load (0.4ms)[0m   [0mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 07:11:16) [GET]
+  [4;36;1mFoo Load (0.5ms)[0m   [0;1mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+
+ActionView::TemplateError (Unknown key(s): condition) on line #29 of app/views/foos/index.html.erb:
+26: 
+27: 
+28: <h1>Test Named scope for Sundays</h1>
+29: <% Foo.sundays.each do |foo| %>
+30:   <tr>
+31:     <td><%=h foo.name %></td>
+32:     <td><%=h foo.selected_day %></td>
+
+    app/views/foos/index.html.erb:29
+    app/controllers/foos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (109.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 07:11:23) [GET]
+  [4;35;1mFoo Load (0.5ms)[0m   [0mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+  [4;36;1mFoo Load (0.4ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."selected_day" = 4) [0m
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 07:11:40) [GET]
+  [4;35;1mFoo Load (0.4ms)[0m   [0mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+  [4;36;1mFoo Load (0.4ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."selected_day" = 4) [0m
+Completed in 15ms (View: 11, DB: 1) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#edit (for 192.168.67.1 at 2009-12-23 07:11:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFoo Load (0.2ms)[0m   [0mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/edit
+Rendered foos/_form (1.1ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://devlist.if.ua/foos/1/edit]
+
+
+Processing FoosController#update (for 192.168.67.1 at 2009-12-23 07:11:46) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8YQkgCnzQWqbu1oaVTSlGnCcgC/hLpJjNf5ZRo65bYE=", "id"=>"1", "foo"=>{"name"=>"igor", "days"=>["Friday", "Sunday"], "selected_day"=>"Monday"}}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+  [4;35;1mFoo Update (0.2ms)[0m   [0mUPDATE "foos" SET "updated_at" = '2009-12-23 12:11:46', "selected_day" = 1 WHERE "id" = 1[0m
+Redirected to http://devlist.if.ua:3000/foos/1
+Completed in 13ms (DB: 0) | 302 Found [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#show (for 192.168.67.1 at 2009-12-23 07:11:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."id" = 1) [0m
+Rendering template within layouts/foos
+Rendering foos/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://devlist.if.ua/foos/1]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 07:11:47) [GET]
+  [4;35;1mFoo Load (0.5ms)[0m   [0mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."selected_day" = 4) [0m
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://devlist.if.ua/foos]
+
+
+Processing FoosController#index (for 192.168.67.1 at 2009-12-23 07:11:49) [GET]
+  [4;35;1mFoo Load (0.4ms)[0m   [0mSELECT * FROM "foos" [0m
+Rendering template within layouts/foos
+Rendering foos/index
+  [4;36;1mFoo Load (0.2ms)[0m   [0;1mSELECT * FROM "foos" WHERE ("foos"."selected_day" = 4) [0m
+Completed in 10ms (View: 6, DB: 1) | 200 OK [http://devlist.if.ua/foos]
